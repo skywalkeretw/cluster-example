@@ -7,3 +7,5 @@ nodes:
     hostPort: 9091   
   - containerPort: 30952
     hostPort: 9092 
+  - containerPort: 30953
+    hostPort: 9093 

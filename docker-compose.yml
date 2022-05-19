@@ -28,6 +28,21 @@ services:
     networks:
       - application
 
+  node-server:
+    container_name: node-server
+    build:
+      context: ./node-server
+      dockerfile: Dockerfile
+    image: node-server
+    env_file:
+      - node-server/.env
+    ports:
+      - "8083:8080"
+    restart: on-failure
+    networks:
+      - application
+
+
 # Networks to be created to facilitate communication between containers
 networks:
   application:
