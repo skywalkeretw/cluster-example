@@ -1,17 +1,14 @@
 from os import environ
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
+
 
 app=Flask(__name__)
 
-@app.route("/",methods=['GET','POST'])
-def index():
-    if request.method=='GET':
-        name = "John Doe"     
-        result = {"name": name}
-        return jsonify(result)
-    else:
-        return jsonify({'Error':"This is a GET API method"})
 
+@app.route("/")
+def index():
+    result = {"body": "Hello form Python"}
+    return jsonify(result)
 
 if __name__ == '__main__':
     debug = False

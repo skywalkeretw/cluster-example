@@ -7,7 +7,7 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).send(JSON.stringify({"body": "Hello Express"}))
+    res.status(200).send(JSON.stringify({"body": "Hello from Node"}))
 })
 
 
