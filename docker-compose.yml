@@ -5,7 +5,7 @@ services:
     build:
       context: ./go-server
       dockerfile: Dockerfile
-    image: service1
+    image: go-server
     env_file:
       - go-server/.env
     ports:
