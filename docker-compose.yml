@@ -14,6 +14,20 @@ services:
     networks:
       - application
 
+  python-server:
+    container_name: python-server
+    build:
+      context: ./python-server
+      dockerfile: Dockerfile
+    image: python-server
+    env_file:
+      - python-server/.env
+    ports:
+      - "8082:8080"
+    restart: on-failure
+    networks:
+      - application
+
 # Networks to be created to facilitate communication between containers
 networks:
   application:

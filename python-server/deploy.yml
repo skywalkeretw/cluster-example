@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-server
+  labels:
+    app: python-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-server
+  template:
+    metadata:
+      labels:
+        app: python-server
+    spec:
+      containers:
+      - name: python-server
+        image: python-server:latest #todo: good name
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+                  memory: "128Mi"
+                  cpu: "500m"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-server
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    nodePort: 30952
+    port: 8080
+  selector:
+    app: python-server

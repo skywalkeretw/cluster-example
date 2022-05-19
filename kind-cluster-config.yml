@@ -4,4 +4,6 @@ nodes:
 - role: control-plane
   extraPortMappings:
   - containerPort: 30951
-    hostPort: 9091 
+    hostPort: 9091   
+  - containerPort: 30952
+    hostPort: 9092 
