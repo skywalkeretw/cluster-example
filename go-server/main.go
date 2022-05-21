@@ -44,10 +44,19 @@ func callNode(c *gin.Context) {
 	c.JSON(http.StatusOK, data)
 }
 
+
+func rick(c *gin.Context) {
+	c.Redirect(http.StatusSeeOther, "https://www.youtube.com/watch?v=o-YBDTqX_ZU")
+
+}
+
+
+
 func main() {
 	r := gin.Default()
 	r.GET("/", home)
 	r.GET("/node", callNode)
 	r.GET("/python", callPython)
+	r.GET("/rick", rick)
 	r.Run(":8080")
 }
