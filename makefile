@@ -25,13 +25,12 @@ destroy:
 
 load:
 	@echo "Load Docker imges into Kind Cluster"
+	kind load docker-image --name ${NAME} frontend
 	kind load docker-image --name ${NAME} go-server
 	kind load docker-image --name ${NAME} node-server
 	kind load docker-image --name ${NAME} python-server
 
 deploy:
 	@echo "Deploying to Kind Cluster"
-	kubectl apply -f go-server/deploy.yml
-	kubectl apply -f node-server/deploy.yml
-	kubectl apply -f python-server/deploy.yml
+	kubectl apply -f deployment
 
