@@ -1,5 +1,19 @@
 version: '3.7'
 services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: frontend
+    env_file:
+      - frontend/.env
+    ports:
+      - "8080:80"
+    restart: on-failure
+    networks:
+      - application
+
   go-server:
     container_name: go-server
     build:
